@@ -1,0 +1,19 @@
+name: test
+
+on: workflow_dispatch
+
+jobs:
+  history:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: show github
+        run: echo "${CONTEXT}"
+        env:
+          CONTEXT: ${{ toJson(github) }}
+      - name: Show history
+        run: npm start
+      - name: commit and push
+        uses: stefanzweifel/git-auto-commit-action@v4
