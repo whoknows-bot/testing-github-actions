@@ -19,7 +19,7 @@ jobs:
           git add -A
           git commit -m "Documentation update"
           git push https://$USERNAME:$REPO_KEY@github.com/myorg/documentation.git
-      env:
-        REPO_KEY: ${{ secrets.GH_TOKEN }}
-        USERNAME: github-actions[bot]
+        env:
+          REPO_KEY: ${{ secrets.GH_TOKEN }}
+          USERNAME: github-actions[bot]
 
